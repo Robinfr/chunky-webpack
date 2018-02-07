@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "serve": "webpack-dev-server"
+    "serve": "webpack-dev-server",
+    "clean": "rm -rf dist/",
+    "prepublish": "npm run build"
   },
   "author": "",
   "license": "MIT",
