@@ -24,6 +24,10 @@ if (process.env.NODE_ENV === 'production') {
     module.exports = merge.smart(config, {
         target: 'node',
         externals: [nodeExternals()],
+        output: {
+            library: 'sub-package-a',
+            libraryTarget: 'umd'
+        },
         plugins: [
             new UglifyJSPlugin({
                 sourceMap: true
