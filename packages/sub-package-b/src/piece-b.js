@@ -1,0 +1,1 @@
+export default 'Clearly, this is piece b';
