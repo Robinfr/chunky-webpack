@@ -1,0 +1,23 @@
+{
+  "name": "chunky-webpack",
+  "version": "0.0.1",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Robinfr/chunky-webpack.git"
+  },
+  "author": "Robin Franken",
+  "license": "SEE LICENSE",
+  "bugs": {
+    "url": "https://github.com/Robinfr/chunky-webpack/issues"
+  },
+  "homepage": "https://github.com/Robinfr/chunky-webpack#readme",
+  "devDependencies": {
+    "lerna": "^2.8.0"
+  }
+}
