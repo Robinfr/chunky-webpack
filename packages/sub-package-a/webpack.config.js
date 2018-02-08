@@ -11,7 +11,26 @@ module.exports = {
     devtool: 'source-map',
     module: {
         rules: [
-            { test: /\.js$/, use: 'babel-loader' }
+            {
+                test: /\.js$/,
+                include: [
+                    './src',
+                    'sub-package-b'
+                ],
+                use: 'babel-loader'
+            },
+            {
+                test: /\.scss$/,
+                use: [{
+                    loader: 'style-loader' // creates style nodes from JS strings
+                }, {
+                    loader: 'css-loader' // translates CSS into CommonJS
+                }, {
+                    loader: 'sass-loader' // compiles Sass to CSS
+                }]
+            },
+
+            { test: /\.js$/, use: ['source-map-loader'], enforce: 'pre' }
         ]
     },
     plugins: [

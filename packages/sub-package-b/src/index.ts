@@ -1,3 +1,5 @@
+import './styles/style.scss';
+
 const loadPiece = async (pieceName: string) => {
     if (pieceName === 'a') {
         const pieceA = await
