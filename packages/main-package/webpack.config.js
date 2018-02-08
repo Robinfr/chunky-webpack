@@ -9,12 +9,17 @@ module.exports = {
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main-bundle.js'
+        filename: 'main-bundle.js',
+        chunkFilename: '[name].chunk.js'
     },
     devtool: 'source-map',
+    devServer: {
+        host: '0.0.0.0',
+        disableHostCheck: true
+    },
     module: {
         rules: [
-            { test: /\.js$/, use: 'babel-loader' },
+            { test: /\.js$/, exclude: /node_modules/, use: 'babel-loader' },
             { test: /\.js$/, use: ['source-map-loader'], enforce: 'pre' }
         ]
     },

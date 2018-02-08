@@ -1,11 +1,7 @@
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const nodeExternals = require('webpack-node-externals');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const merge = require('webpack-merge');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const config = {
+module.exports = {
     entry: path.resolve(__dirname, 'src', 'index.js'),
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -17,27 +13,8 @@ const config = {
         rules: [
             { test: /\.js$/, use: 'babel-loader' }
         ]
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin()
+    ]
 };
-
-if (process.env.NODE_ENV === 'production') {
-    module.exports = merge.smart(config, {
-        target: 'node',
-        externals: [nodeExternals()],
-        output: {
-            library: 'sub-package-b',
-            libraryTarget: 'umd'
-        },
-        plugins: [
-            new UglifyJSPlugin({
-                sourceMap: true
-            })
-        ]
-    });
-} else {
-    module.exports = merge.smart(config, {
-        plugins: [
-            new HtmlWebpackPlugin()
-        ]
-    });
-}
