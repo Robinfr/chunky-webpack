@@ -1,4 +1,4 @@
-const loadPiece = async (pieceName) => {
+const loadPiece = async (pieceName: string) => {
     if (pieceName === 'a') {
         const pieceA = await
             import(/* webpackChunkName: "sub-package-b/piece-a" */'./piece-a');
